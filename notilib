@@ -45,7 +45,7 @@ function NotiLib:Create()
         local Title = Instance.new("TextLabel")
         local Countdown = Instance.new("TextLabel")
         local Content = Instance.new("TextLabel")
-        
+
         Noti.Name = "Noti"
         Noti.Parent = Frame
         Noti.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -191,3 +191,5 @@ function NotiLib:Create()
     
     return Elements
 end
+
+return NotiLib
