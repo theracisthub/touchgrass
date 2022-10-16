@@ -1,0 +1,193 @@
+-- stoopid ahh notification ui lib lol
+
+local NotiLib = {}
+
+function NotiLib:Create()
+    local NotificationLOL = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local UIListLayout = Instance.new("UIListLayout")
+
+    NotificationLOL.Name = "NotificationLOL"
+    NotificationLOL.Parent = game:service"CoreGui"
+    NotificationLOL.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    Frame.Parent = NotificationLOL
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame.BackgroundTransparency = 1.000
+    Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Frame.Position = UDim2.new(0.821515918, 0, 0.0348101258, 0)
+    Frame.Size = UDim2.new(0.169926643, 0, 0.928797483, 0)
+    Frame.Active = true
+    Frame.Draggable = false
+
+    UIListLayout.Parent = Frame
+    UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+    UIListLayout.Padding = UDim.new(0, 8)
+
+    local Elements = {}
+
+    function Elements:Notify(titletxt, cnt, durationtime)
+        titletxt = titletxt or "nigger title"
+        cnt = cnt or "nigger content"
+        durationtime = durationtime or 5
+
+        local Noti = Instance.new("Frame")
+        local UICorner = Instance.new("UICorner")
+        local IdkBar = Instance.new("Frame")
+        local UICorner_2 = Instance.new("UICorner")
+        local DurationBar = Instance.new("Frame")
+        local UICorner_3 = Instance.new("UICorner")
+        local UIListLayout_2 = Instance.new("UIListLayout")
+        local TopHeader = Instance.new("Frame")
+        local UICorner_4 = Instance.new("UICorner")
+        local Title = Instance.new("TextLabel")
+        local Countdown = Instance.new("TextLabel")
+        local Content = Instance.new("TextLabel")
+        
+        Noti.Name = "Noti"
+        Noti.Parent = Frame
+        Noti.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        Noti.BorderColor3 = Color3.fromRGB(0, 0, 0)
+        Noti.Position = UDim2.new(1, 0, 0.892674625, 0)
+        Noti.Size = UDim2.new(0, 0, 0, 63)
+        Noti.Visible = true
+
+        UICorner.CornerRadius = UDim.new(0, 3)
+        UICorner.Parent = Noti
+
+        IdkBar.Name = "IdkBar"
+        IdkBar.Parent = Noti
+        IdkBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        IdkBar.BackgroundTransparency = 1.000
+        IdkBar.Position = UDim2.new(0, 0, -0.0018658042, 0)
+        IdkBar.Size = UDim2.new(0, 278, 0, 63)
+        IdkBar.Visible = false
+
+        UICorner_2.CornerRadius = UDim.new(0, 3)
+        UICorner_2.Parent = IdkBar
+
+        DurationBar.Name = "DurationBar"
+        DurationBar.Parent = IdkBar
+        DurationBar.BackgroundColor3 = Color3.fromRGB(142, 3, 255)
+        DurationBar.BorderColor3 = Color3.fromRGB(142, 3, 255)
+        DurationBar.Position = UDim2.new(0.00719424477, 0, 0.952380955, 0)
+        DurationBar.Size = UDim2.new(0, 278, 0, 3)
+        DurationBar.Visible = false
+
+        UICorner_3.CornerRadius = UDim.new(0, 3)
+        UICorner_3.Parent = DurationBar
+
+        UIListLayout_2.Parent = IdkBar
+        UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Bottom
+
+        TopHeader.Name = "TopHeader"
+        TopHeader.Parent = Noti
+        TopHeader.BackgroundColor3 = Color3.fromRGB(142, 3, 255)
+        TopHeader.BorderColor3 = Color3.fromRGB(142, 3, 255)
+        TopHeader.Position = UDim2.new(0, 0, 0.301587284, 0)
+        TopHeader.Size = UDim2.new(0, 278, 0, 3)
+        TopHeader.Visible = false
+
+        UICorner_4.CornerRadius = UDim.new(0, 3)
+        UICorner_4.Parent = TopHeader
+
+        Title.Name = "Title"
+        Title.Parent = Noti
+        Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Title.BackgroundTransparency = 1.000
+        Title.Size = UDim2.new(0, 278, 0, 19)
+        Title.Visible = false
+        Title.Font = Enum.Font.FredokaOne
+        Title.Text = tostring(titletxt)
+        Title.TextColor3 = Color3.fromRGB(142, 3, 255)
+        Title.TextSize = 15.000
+        Title.RichText = true
+
+        Countdown.Name = "Countdown"
+        Countdown.Parent = Title
+        Countdown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Countdown.BackgroundTransparency = 1.000
+        Countdown.Position = UDim2.new(0.859712243, 0, 0, 0)
+        Countdown.Size = UDim2.new(0, 39, 0, 19)
+        Countdown.Visible = false
+        Countdown.Font = Enum.Font.FredokaOne
+        Countdown.Text = "0"
+        Countdown.TextColor3 = Color3.fromRGB(142, 3, 255)
+        Countdown.TextSize = 16.000
+        Countdown.TextTransparency = 1.000
+
+        Content.Name = "Content"
+        Content.Parent = Noti
+        Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Content.BackgroundTransparency = 1.000
+        Content.Position = UDim2.new(0, 0, 0.301587313, 0)
+        Content.Size = UDim2.new(0, 278, 0, 40)
+        Content.Visible = false
+        Content.Font = Enum.Font.FredokaOne
+        Content.Text = tostring(cnt)
+        Content.TextColor3 = Color3.fromRGB(142, 3, 255)
+        Content.TextScaled = true
+        Content.TextSize = 15.000
+        Content.TextWrapped = true
+        Content.RichText = true
+
+        local ts = game:GetService("TweenService")
+        
+        ts:Create(
+            Noti,
+            TweenInfo.new(1.32,Enum.EasingStyle.Back,Enum.EasingDirection.InOut),
+            {Size=UDim2.new(0, 278,0, 63)}
+        ):Play()
+        wait(1.32)
+        Noti.TopHeader.Visible = true
+        Noti.IdkBar.Visible = true
+        Noti.IdkBar.DurationBar.Visible = true
+        Noti.Title.Visible = true
+        Noti.Content.Visible = true
+        Noti.Title.Countdown.Visible = true
+        ts:Create(
+            Noti.IdkBar.DurationBar,
+            TweenInfo.new(durationtime,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+            {Size=UDim2.new(0, 0,0, 3)}
+        ):Play()
+        
+        task.spawn(function()
+            local newTime = durationtime
+            ts:Create(
+                Noti.Title.Countdown,
+                TweenInfo.new(0.45,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                {TextTransparency=0} 
+            ):Play()
+            while Noti ~= nil do
+                task.wait(0.11)
+                pcall(function()
+                    Noti.Title.Countdown.Text = tostring(string.format("%.2f", newTime))
+                    newTime = newTime - 0.11
+                end)
+            end
+        end)
+        
+        task.spawn(function()
+            wait(durationtime)
+            Noti.TopHeader.Visible = false
+            Noti.IdkBar.Visible = false
+            Noti.IdkBar.DurationBar.Visible = false
+            Noti.Title.Visible = false
+            Noti.Content.Visible = false
+            Noti.Title.Countdown.Visible = false
+            ts:Create(
+                Noti,
+                TweenInfo.new(1.32,Enum.EasingStyle.Back,Enum.EasingDirection.InOut),
+                {Size=UDim2.new(0, 0,0, 63)}
+            ):Play()
+            task.wait(1.32)
+            Noti:Destroy()
+        end)
+    end
+    
+    return Elements
+end
